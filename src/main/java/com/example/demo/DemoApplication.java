@@ -1,6 +1,6 @@
 package com.example.demo;
 
-import com.example.demo.structures.TestDpI;
+import com.example.demo.structures.TestDepInjComponent;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -11,7 +11,7 @@ public class DemoApplication {
 	static ApplicationContext context;
 	public static void main(String[] args) {
 		context = SpringApplication.run(DemoApplication.class, args);
-		TestDpI dpi = context.getBean(TestDpI.class);
+		TestDepInjComponent dpi = context.getBean(TestDepInjComponent.class);
 		System.out.println(dpi.getContainer());
 		dpi.setContainer("Poka");
 		System.out.println(dpi.getContainer());

@@ -3,11 +3,11 @@ package com.example.demo.structures;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TestDpI {
+public class TestDepInjComponent {
 
     private String container;
 
-    public TestDpI(){
+    public TestDepInjComponent(){
         this.container = "Test";
     }
     public String getContainer() {
