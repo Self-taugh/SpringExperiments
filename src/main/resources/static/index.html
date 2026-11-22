@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интернет-магазин</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>🛍️ Интернет-магазин</h1>
+    <p class="subtitle">Выберите способ перехода</p>
+
+    <div class="section">
+        <h2>Случайный товар</h2>
+        <button class="btn" onclick="goRandom()">Перейти к случайному товару</button>
+    </div>
+
+    <div class="section">
+        <h2>Переход по ID</h2>
+        <div class="input-group">
+            <input type="number" id="idInput" placeholder="Введите ID товара" min="1">
+            <button class="btn" onclick="goById()">Перейти</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function goRandom() {
+        const randomId = Math.floor(Math.random() * 5) + 1;
+        window.location.href = '/base/' + randomId;
+    }
+
+    function goById() {
+        const input = document.getElementById('idInput');
+        const id = input.value.trim();
+
+        if (!id || isNaN(id) || Number(id) < 1) {
+            alert('Введите корректный ID (число больше 0)');
+            return;
+        }
+
+        window.location.href = '/base/' + id;
+    }
+
+    document.getElementById('idInput').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            goById();
+        }
+    });
+</script>
+</body>
+</html>
